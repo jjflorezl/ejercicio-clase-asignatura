@@ -4,10 +4,11 @@ import org.w3c.dom.ls.LSOutput;
 import personas.Estudiante;
 import personas.Profesor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Asignatura {
+public class Asignatura implements Serializable {
     private String nombre;
     private Profesor profesor;
     private ArrayList<Estudiante> estudiantes = new ArrayList<>();
