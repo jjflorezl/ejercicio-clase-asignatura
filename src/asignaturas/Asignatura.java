@@ -1,9 +1,11 @@
 package asignaturas;
 
+import org.w3c.dom.ls.LSOutput;
 import personas.Estudiante;
 import personas.Profesor;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Asignatura {
     private String nombre;
@@ -115,6 +117,18 @@ public class Asignatura {
                 ", dinamico=" + dinamico +
                 ", cupo=" + cupo +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Asignatura that = (Asignatura) o;
+        return inscritos == that.inscritos && dinamico == that.dinamico && cupo == that.cupo && Objects.equals(nombre, that.nombre) && Objects.equals(profesor, that.profesor) && Objects.equals(estudiantes, that.estudiantes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, profesor, estudiantes, inscritos, dinamico, cupo);
     }
 }
 
