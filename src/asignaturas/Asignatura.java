@@ -104,6 +104,18 @@ public class Asignatura {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "Asignatura{" +
+                "nombre='" + nombre + '\'' +
+                ", profesor=" + profesor +
+                ", estudiantes=" + estudiantes +
+                ", inscritos=" + inscritos +
+                ", dinamico=" + dinamico +
+                ", cupo=" + cupo +
+                '}';
+    }
 }
 
 
