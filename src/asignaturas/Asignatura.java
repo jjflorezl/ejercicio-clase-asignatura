@@ -68,7 +68,7 @@ public class Asignatura {
     }
 
     public boolean agregarEstudiante(String code, ArrayList<Estudiante> vector, String nombre, String identificacion) {
-        if(cupo==0){
+        if (cupo == 0) {
             System.out.println("no quedan suficientes cupos para añadir un estudiante");
             return false;
         }
@@ -77,7 +77,7 @@ public class Asignatura {
             this.estudiantes.add(new Estudiante(nombre, identificacion, code));
             inscritos++;
             cupo--;
-            System.out.println("estudiante "+nombre+" agregado correctamente");
+            System.out.println("estudiante " + nombre + " agregado correctamente");
             return true;
         }
         return false;
@@ -94,42 +94,20 @@ public class Asignatura {
         System.out.println("no se encontro el estudiante");
         return false;
     }
-    public void mostrarInfo(){
-        System.out.println("Nombre de la asignatura: "+nombre);
-        System.out.println("Profesor: "+profesor.getNombre());
-        System.out.println("hay "+inscritos+" estudiantes inscritos y");
+
+    public void mostrarInfo() {
+        System.out.println("Nombre de la asignatura: " + nombre);
+        System.out.println("Profesor: " + profesor.getNombre());
+        System.out.println("hay " + inscritos + " estudiantes inscritos y");
         System.out.println("los estudiantes inscritos son: ");
-        for(int i=0;i<estudiantes.size();i++){
+        for (int i = 0; i < estudiantes.size(); i++) {
             System.out.println(estudiantes.get(i).getNombre());
         }
-        System.out.println("quedan "+cupo+" cupos");
+        System.out.println("quedan " + cupo + " cupos");
 
 
     }
 
-    @Override
-    public String toString() {
-        return "Asignatura{" +
-                "nombre='" + nombre + '\'' +
-                ", profesor=" + profesor +
-                ", estudiantes=" + estudiantes +
-                ", inscritos=" + inscritos +
-                ", dinamico=" + dinamico +
-                ", cupo=" + cupo +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Asignatura that = (Asignatura) o;
-        return inscritos == that.inscritos && dinamico == that.dinamico && cupo == that.cupo && Objects.equals(nombre, that.nombre) && Objects.equals(profesor, that.profesor) && Objects.equals(estudiantes, that.estudiantes);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre, profesor, estudiantes, inscritos, dinamico, cupo);
-    }
 }
 
 
